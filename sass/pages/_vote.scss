@@ -1,0 +1,19 @@
+.section-vote {
+  width: 100%;
+  background-color: $color-secondary-1;
+  padding: 3rem;
+  border-radius: 1rem;
+
+  &:not(:last-child) {
+    margin-bottom: 3rem;
+  }
+
+  .heading-tertiary {
+    margin-bottom: 1rem;
+  }
+
+  @include respond(phone-big) {
+    background: none;
+    padding: 0;
+  }
+}

@@ -1,0 +1,125 @@
+//Homepage Main Layout
+.hp-main {
+  display: grid;
+  grid-template-columns: max-content 3fr max-content;
+  grid-gap: 3rem;
+  margin-bottom: 3rem;
+
+  @include respond(tab-land-big) {
+    grid-template-columns: 1fr;
+  }
+}
+
+//Sidebar
+.sidebar {
+  background-color: $color-secondary-1;
+  padding: 3rem;
+  border-radius: 1rem;
+
+  @include respond(tab-land-big) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 2rem;
+  }
+
+  @include respond(phone-big) {
+    grid-template-columns: 1fr;
+  }
+
+  &__item {
+    background-color: $color-secondary-2;
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: $box-shadow;
+    transition: 0.2s ease;
+
+    &:not(:last-child) {
+      margin-bottom: 2rem;
+
+      @include respond(tab-land-big) {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  &__item-title {
+    font-size: $default-font-size;
+    font-weight: 400;
+    padding: 2.2rem 1rem 0 2rem;
+    color: $color-white;
+
+    .far,
+    .fas {
+      color: $color-white;
+    }
+  }
+
+  &__box {
+    padding: 2rem;
+    color: $color-white;
+    transition: 0.2s ease;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__text {
+    padding: 0.5rem 1rem;
+    background-color: $color-primary-1;
+    border-radius: 0.5rem;
+
+    &--sub {
+      display: block;
+      color: $color-white;
+      font-size: 1.4rem;
+    }
+  }
+
+  &__link {
+    text-decoration: none;
+    font-size: 1.5rem;
+    color: $color-white;
+    padding: 0.5rem 1rem;
+    background-color: $color-primary-1;
+    border-radius: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: 0.2s ease;
+
+    &:not(:last-child) {
+      margin-bottom: 0.5rem;
+    }
+
+    .fas {
+      color: rgba($color-white, 1);
+      margin-left: 3rem;
+    }
+
+    &:hover {
+      background-color: rgba($color-primary-1, 0.8);
+    }
+  }
+}
+
+//Chart
+.hp-chart {
+  padding: 3rem;
+  background-color: $color-secondary-1;
+  border-radius: 1rem;
+  height: 60rem;
+}
+
+//Top Tokens
+.top-tokens {
+  padding: 3rem;
+  background-color: $color-secondary-1;
+  border-radius: 1rem;
+
+  .heading-tertiary {
+    margin-bottom: 1rem;
+  }
+}
+
+.section-transactions {
+  width: 100%;
+}

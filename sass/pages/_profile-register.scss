@@ -1,0 +1,10 @@
+.hp-register {
+  .paragraph {
+    width: 110rem;
+    margin: 0 auto 3rem;
+
+    @include respond(tab-land-big) {
+      width: 100%;
+    }
+  }
+}

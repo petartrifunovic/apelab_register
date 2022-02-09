@@ -1,0 +1,71 @@
+.logo {
+  width: 4rem;
+  position: absolute;
+  left: 3.1rem;
+  top: -6rem;
+}
+
+.banner-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 3rem;
+
+  @include respond(tab-land) {
+    grid-row: 1 / -1;
+  }
+
+  @include respond(tab-port) {
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 3rem;
+    grid-row-gap: 0;
+
+    .banner--4 {
+      display: none;
+    }
+  }
+
+  @include respond(phone-big) {
+    grid-template-columns: 1fr;
+    grid-gap: 0;
+
+    .banner--2 {
+      display: none;
+    }
+  }
+
+  &--full-width {
+    grid-template-columns: repeat(4, 1fr);
+
+    @include respond(tab-land) {
+      grid-template-columns: repeat(3, 1fr);
+
+      .banner--4 {
+        display: none;
+      }
+    }
+
+    @include respond(tab-port) {
+      grid-template-columns: repeat(2, 1fr);
+
+      .banner--3 {
+        display: none;
+      }
+    }
+
+    @include respond(phone-big) {
+      grid-template-columns: 1fr;
+
+      .banner--2 {
+        display: none;
+      }
+    }
+  }
+}
+
+.banner {
+  background-color: $color-secondary-1;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

@@ -1,0 +1,520 @@
+.section-profile {
+  background-color: $color-secondary-1;
+  padding: 3rem;
+  border-radius: 1rem;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-gap: 3rem;
+
+  @include respond(tab-land-big) {
+    grid-template-columns: 1fr;
+  }
+
+  @include respond(phone) {
+    background: none;
+    padding: 2rem 0 0;
+    border-radius: 0;
+    box-shadow: none;
+  }
+}
+
+.profile {
+  &__details {
+    display: flex;
+    align-items: center;
+  }
+
+  &__img {
+    height: 10rem;
+    margin-right: 2rem;
+    float: left;
+    border-radius: 30rem;
+
+    @include respond(phone-big) {
+      margin-right: 1rem;
+    }
+
+    @include respond(phone) {
+      height: 4rem;
+    }
+  }
+
+  &__name {
+    font-size: 3rem;
+    margin-right: 2rem;
+
+    @include respond(phone-big) {
+      font-size: 2.4rem;
+    }
+
+    @include respond(phone) {
+      font-size: 2rem;
+    }
+  }
+
+  &__symbol {
+    padding: 1rem 2rem;
+    background-color: rgba($color-white, 0.1);
+    border-radius: 1rem;
+    text-transform: uppercase;
+    margin-right: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @include respond(phone-big) {
+      padding: 0.75rem 1rem;
+      font-size: 1.4rem;
+    }
+  }
+
+  &__watchlist {
+    font-size: 3rem;
+    color: $color-accent;
+    opacity: 0.5;
+    transition: 0.2s ease;
+    position: relative;
+
+    @include respond(phone-big) {
+      font-size: 2rem;
+    }
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  &__watchlist:hover &__watchlist-tooltip {
+    display: block;
+  }
+
+  &__watchlist-tooltip {
+    position: absolute;
+    top: -1.3rem;
+    left: 50%;
+    transform: translate(-50%, -1.3rem);
+    font-size: 1.2rem;
+    color: $color-grey-dark-3;
+    background-color: $color-accent;
+    padding: 0.5rem 1rem;
+    border-radius: 3px;
+    width: 12rem;
+    text-align: center;
+    display: none;
+  }
+
+  &__address-box {
+    margin-top: 1rem;
+    font-size: 1.5rem;
+  }
+
+  &__address {
+    @include respond(phone-big) {
+      font-size: 1.2rem;
+    }
+
+    &--small {
+      font-size: 1.5rem;
+      color: rgba($color-white, 0.5);
+
+      @include respond(phone-big) {
+        display: block;
+      }
+    }
+
+    &--icon {
+      color: rgba($color-white, 0.5);
+      margin-left: 0.5rem;
+    }
+  }
+
+  &__address-copy-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+
+  &__copied-text {
+    color: $color-white;
+    margin-left: 0.5rem;
+    font-size: 1.2rem;
+    color: rgba($color-white, 0.6);
+    display: none;
+  }
+}
+
+.profile-status {
+  margin-top: 5rem;
+  display: flex;
+  padding: 1rem 2rem;
+  background-color: $color-secondary-2;
+  border-radius: 1rem;
+  margin-bottom: 3rem;
+
+  @include respond(tab-port) {
+    justify-content: space-around;
+    padding: 1rem;
+    margin-top: 3rem;
+  }
+
+  @include respond(phone) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    padding: 3rem;
+    background-color: $color-secondary-1;
+    grid-gap: 0.5em;
+    align-items: center;
+    justify-items: center;
+    width: 100%;
+  }
+
+  &__box {
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    &:nth-child(5) {
+      @include respond(phone) {
+        grid-column: 1 / span 2;
+      }
+    }
+
+    @include respond(phone-big) {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    @include respond(phone) {
+      width: 100%;
+    }
+
+    &:not(:last-child) {
+      margin-right: 1rem;
+
+      @include respond(phone) {
+        margin-right: 0;
+      }
+    }
+  }
+
+  &__title {
+    font-size: 1.4rem;
+    margin-right: 0.5rem;
+
+    @include respond(tab-land) {
+      font-size: 1.2rem;
+    }
+
+    @include respond(tab-port) {
+      display: none;
+    }
+
+    @include respond(phone) {
+      font-size: 1.2rem;
+    }
+  }
+
+  &__status {
+    padding: 0.5rem 1rem;
+    border-radius: 3px;
+    background-color: $color-valid;
+    color: $color-grey-dark-3;
+
+    @include respond(phone) {
+      width: 100%;
+    }
+
+    &::before {
+      content: 'Status';
+      font-size: 1.2rem;
+      display: none;
+
+      @include respond(tab-port) {
+        display: block;
+      }
+    }
+  }
+
+  &__listing {
+    padding: 0.5rem 1rem;
+    border-radius: 3px;
+    background-color: $color-valid;
+    color: $color-grey-dark-3;
+
+    @include respond(phone) {
+      width: 100%;
+    }
+
+    &::before {
+      content: 'Votes for listing';
+      font-size: 1.2rem;
+      display: none;
+
+      @include respond(tab-port) {
+        display: block;
+      }
+    }
+  }
+
+  &__votes {
+    padding: 0.5rem 1rem;
+    border-radius: 3px;
+    background-color: rgba($color-primary-1, 0.3);
+
+    @include respond(phone) {
+      width: 100%;
+    }
+
+    &::before {
+      content: 'Votes';
+      font-size: 1.2rem;
+      display: none;
+
+      @include respond(tab-port) {
+        display: block;
+      }
+    }
+
+    &--today {
+      padding: 0.5rem 1rem;
+      border-radius: 3px;
+      background-color: rgba($color-primary-1, 0.3);
+
+      @include respond(phone) {
+        width: 100%;
+      }
+
+      &::before {
+        content: 'Votes Today';
+        font-size: 1.2rem;
+        display: none;
+        text-align: center;
+
+        @include respond(tab-port) {
+          display: block;
+        }
+      }
+    }
+  }
+
+  &__network {
+    padding: 0.5rem 1rem;
+    border-radius: 3px;
+    background-image: linear-gradient(
+      to bottom,
+      $color-secondary-1,
+      $color-secondary-2
+    );
+    border: 1px solid rgba($color-white, 0.2);
+
+    @include respond(phone) {
+      width: 100%;
+    }
+
+    &::before {
+      content: 'Network';
+      font-size: 1.2rem;
+      display: none;
+      text-align: center;
+
+      @include respond(tab-port) {
+        display: block;
+      }
+    }
+  }
+}
+
+.profile-content {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 3rem;
+  margin-bottom: 3rem;
+
+  @include respond(phone-big) {
+    grid-template-columns: 1fr;
+  }
+
+  &__box {
+    padding: 2rem;
+    background-color: $color-secondary-2;
+    border-radius: 1rem;
+    box-shadow: $box-shadow;
+    transition: 0.2s ease;
+
+    &:hover {
+      transform: translateY(-3px);
+      box-shadow: $box-shadow-dark;
+    }
+
+    @include respond(phone) {
+      background-color: $color-secondary-1;
+    }
+  }
+
+  &__title {
+    margin-bottom: 1rem;
+    font-weight: 300;
+  }
+
+  &__icon {
+    color: $color-valid;
+    margin-right: 0.5rem;
+  }
+
+  &__link {
+    background-color: $color-primary-1;
+    padding: 0.5rem 1rem;
+    border-radius: 3px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-decoration: none;
+    color: $color-white;
+    transition: 0.2s ease;
+
+    &:hover {
+      background-color: $color-primary-2;
+    }
+  }
+
+  .heading-tertiary {
+    margin-bottom: 1rem;
+  }
+}
+
+.profile-vote {
+  padding: 0 0 2rem;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid rgba($color-white, 0.2);
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-column-gap: 3rem;
+  align-items: center;
+  align-items: baseline;
+
+  @include respond(phone-big) {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__text {
+    font-size: 1.4rem;
+    font-style: italic;
+  }
+
+  .heading-secondary {
+    color: $color-primary-1;
+    font-weight: 600;
+  }
+
+  .paragraph {
+    text-align: right;
+    color: rgba($color-white, 0.6);
+    margin-bottom: 1rem !important;
+  }
+
+  .btn--primary {
+    grid-column: 1 / span 2;
+    margin-right: 0 !important;
+    text-align: center;
+    margin-bottom: 1rem;
+
+    @include respond(phone-big) {
+      width: 100%;
+    }
+  }
+}
+
+.profile-info {
+  font-size: 1.4rem;
+
+  @include respond(tab-land) {
+    margin-bottom: 2rem;
+  }
+
+  &__text {
+    color: rgba($color-white, 0.6);
+    font-style: italic;
+  }
+
+  &__link {
+    color: $color-white;
+  }
+}
+
+.profile-sidebar {
+  padding: 3rem;
+  background-color: $color-secondary-2;
+  border-radius: 1rem;
+  box-shadow: $box-shadow;
+  font-size: 1.5rem;
+
+  @include respond(tab-land) {
+    font-size: $default-font-size;
+  }
+
+  @include respond(phone-big) {
+    font-size: 1.5rem;
+  }
+
+  @include respond(phone) {
+    background-color: $color-secondary-1;
+  }
+
+  &__box {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-gap: 0.5rem;
+    align-items: center;
+
+    &:not(:last-child) {
+      margin-bottom: 2rem;
+    }
+  }
+
+  &__title {
+    color: rgba($color-white, 0.6);
+  }
+
+  &__info {
+    display: flex;
+    align-items: center;
+  }
+
+  &__star-icon {
+    color: $color-accent;
+    font-size: 1rem;
+    margin-right: 0.5rem;
+  }
+
+  &__info-watchlist {
+    margin: 0 0.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: 3px;
+    background-color: rgba($color-white, 0.2);
+  }
+
+  &__link {
+    color: $color-primary-1;
+    text-decoration: none;
+    transition: 0.2s ease;
+
+    &:hover {
+      color: rgba($color-primary-1, 0.8);
+    }
+  }
+
+  &__link-icon {
+    color: $color-white;
+    margin-right: 0.5rem;
+  }
+
+  .heading-tertiary {
+    grid-column: 1 / span 2;
+    border-bottom: 1px solid rgba($color-white, 0.2);
+    font-weight: 300;
+    text-transform: uppercase;
+    font-size: $default-font-size;
+    padding-bottom: 0.5rem;
+  }
+}

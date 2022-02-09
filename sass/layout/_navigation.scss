@@ -1,0 +1,247 @@
+.nav {
+  padding: 2rem 4rem;
+  z-index: 9999999999999999999;
+  height: max-content;
+  background-image: linear-gradient(
+    to bottom,
+    $color-primary-1,
+    $color-primary-2
+  );
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  transition: 0.5s ease;
+  position: sticky;
+  top: 8rem;
+  padding-top: 2rem;
+
+  @include respond(tab-port) {
+    height: 100vh;
+    width: 100%;
+    border-radius: 0;
+    padding: 2rem;
+    border-top: 0.3rem solid $color-white;
+  }
+
+  &:hover &__title {
+    width: 90%;
+    text-align: left;
+
+    @include respond(tab-port) {
+      width: 100%;
+    }
+  }
+
+  &__title {
+    font-size: 1.4rem;
+    left: 1.4rem;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba($color-white, 0.4);
+    position: absolute;
+
+    @include respond(tab-port) {
+      position: relative;
+      left: 0;
+    }
+  }
+
+  &__logo {
+    width: 5rem;
+    left: 2.7rem;
+    top: 1.5rem;
+    position: absolute;
+
+    @include respond(tab-port) {
+      left: 2rem;
+    }
+  }
+
+  &__top-icon {
+    position: absolute;
+    top: -1.8rem;
+    left: 4.3rem;
+    font-size: 3rem;
+    color: $color-primary-1;
+
+    @include respond(tab-port) {
+      display: none;
+    }
+  }
+
+  &__list {
+    list-style: none;
+    padding-top: 6rem;
+
+    @include respond(tab-port) {
+      padding-top: 1rem;
+    }
+
+    .nav__list-icon {
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  &__link {
+    text-decoration: none;
+    color: $color-grey-light-1;
+    display: flex;
+    align-items: center;
+
+    @include respond(tab-port) {
+      display: flex;
+      align-items: center;
+      //width: 100%;
+      width: max-content;
+    }
+
+    &--active {
+      position: absolute;
+      left: -1.2rem;
+      font-size: 0.6rem;
+      opacity: 0.6;
+    }
+  }
+
+  &__list-item {
+    margin-bottom: 2rem;
+    display: flex;
+    position: relative;
+    //align-items: center;
+    flex-direction: column;
+
+    @include respond(tab-port) {
+      display: flex;
+    }
+  }
+
+  &__list-icon {
+    position: relative;
+    font-size: $default-font-size;
+    margin-left: 0.2rem;
+    color: $color-white;
+  }
+
+  &__list-text {
+    font-size: 1.3rem;
+    position: absolute;
+    left: 4rem;
+    width: max-content;
+    transition: 0.3s ease;
+    opacity: 0;
+
+    @include respond(tab-port) {
+      opacity: 1;
+      display: flex;
+      align-items: center;
+      //position: relative;
+      margin-left: 0;
+    }
+  }
+
+  &__list-submenu-icon {
+    margin-left: 3rem;
+    transition: 0.2s ease;
+    position: absolute;
+    top: 0.3rem;
+    right: -1.5rem;
+    font-size: 1.4rem;
+    cursor: pointer;
+    opacity: 0;
+
+    @include respond(tab-port) {
+      margin-right: 2rem;
+      opacity: 1;
+    }
+
+    &--rotate {
+      transform: rotate(180deg);
+    }
+  }
+
+  &:hover &__list-submenu-icon {
+    opacity: 1;
+  }
+
+  //Sub
+  &__sub {
+    list-style: none;
+    margin-left: 4rem;
+    margin-top: 1.5rem;
+    opacity: 0.6;
+
+    &--hidden {
+      display: none;
+    }
+  }
+
+  &__sub-item {
+    font-size: 1.3rem;
+    width: 100%;
+
+    &:not(:last-child) {
+      margin-bottom: 1rem;
+    }
+  }
+
+  &__sub-item-link {
+    text-decoration: none;
+    color: $color-white;
+  }
+
+  &:hover {
+    width: 30rem;
+
+    @include respond(tab-port) {
+      width: 100%;
+    }
+  }
+
+  &:hover &__list-text {
+    opacity: 1;
+  }
+}
+
+//Hamburger Menu
+.hamburger-menu {
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+  display: none;
+
+  @include respond(tab-port) {
+    display: flex;
+  }
+}
+
+.hamburger-menu__line {
+  width: 100%;
+  height: 1px;
+  background-color: $color-white;
+  transition: 0.3s ease;
+}
+
+.hamburger-menu__change .hamburger-menu__line--1 {
+  transform: rotateZ(-45deg) translate(-7px, 9px);
+}
+
+.hamburger-menu__change .hamburger-menu__line--2 {
+  opacity: 0;
+}
+
+.hamburger-menu__change .hamburger-menu__line--3 {
+  transform: rotateZ(45deg) translate(-8px, -10px);
+}
+
+.full-width {
+  width: 100%;
+}
+
+.small-width {
+  width: 30rem;
+}
